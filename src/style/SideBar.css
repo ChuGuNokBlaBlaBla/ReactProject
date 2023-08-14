@@ -1,0 +1,4 @@
+.wrap-sidebar {
+    grid-area: wrap-sidebar;
+    background-color: cadetblue;
+  }

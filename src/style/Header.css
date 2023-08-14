@@ -1,0 +1,8 @@
+.wrap-header {
+    grid-area: wrap-header;
+    background-color: aquamarine;
+  }
+  
+  .wrap-header img {
+    height: 60px;
+  }
