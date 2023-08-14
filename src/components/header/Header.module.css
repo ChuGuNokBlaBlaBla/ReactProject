@@ -1,8 +1,8 @@
-.wrap-header {
+.wrapHeader {
     grid-area: wrap-header;
     background-color: aquamarine;
   }
   
-  .wrap-header img {
+  .wrapHeader img {
     height: 60px;
   }

@@ -1,14 +1,14 @@
 import './App.css';
 import Header from './components/header/Header';
-import BlockProfile from './components/my-profile/contentOnMyProfile';
-import SideBar from './components/sider-bar/sideBar';
+import ProfileBlock from './components/myProfile/ProfileBlock';
+import Sidebar from './components/sidebar/Sidebar';
 
 function App() {
   return (
     <div className="wrap-app">
       <Header />
-      <SideBar />
-      <BlockProfile />
+      <Sidebar />
+      <ProfileBlock />
     </div>
   );
 }

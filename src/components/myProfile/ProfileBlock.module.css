@@ -1,16 +1,16 @@
-.wrap-content {
+.wrapContent {
     grid-area: wrap-content;
     background-color: darkcyan;
   }
   
-  .back-my-profile img {
+  .backMyProfile img {
     height: 350px;
   }
   
-  .my-photo img {
+  .myPhoto img {
     width: 180px;
   }
   
-  .wrap-about-me {
+  .wrapAboutMe {
     display: flex;
   }
