@@ -1,5 +1,6 @@
 import React from 'react';
-import s from'./ProfileBlock.module.css'
+import Posts from '../../components/Posts/Posts.jsx'
+import s from './ProfileBlock.module.css'
 
 const BlockProfile = () => {
     return (
@@ -10,7 +11,7 @@ const BlockProfile = () => {
                 </div>
                 <div className={s.wrapAboutMe}>
                     <div className={s.myPhoto}>
-                        <img src="https://static.kulturologia.ru/files/u23606/2360606209.jpg" />
+                            <img src="https://static.kulturologia.ru/files/u23606/2360606209.jpg" />
                     </div>
                     <div className={s.profileInfo}>
                         <h2 className={s.profileInfoName}>Иван Старов</h2>
@@ -19,7 +20,7 @@ const BlockProfile = () => {
                         <p>Братья и сёстры</p>
                     </div>
                 </div>
-                <div className={s.wrapMyPost}>Мой пост</div>
+                <Posts />
             </div>
         </div>
     )

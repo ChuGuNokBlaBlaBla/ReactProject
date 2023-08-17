@@ -1,8 +1,13 @@
 .wrapHeader {
-    grid-area: wrap-header;
-    background-color: aquamarine;
-  }
-  
-  .wrapHeader img {
-    height: 60px;
-  }
+  height: 60px;
+  background-color: aquamarine;
+}
+
+.header {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header img {
+  height: 60px;
+}

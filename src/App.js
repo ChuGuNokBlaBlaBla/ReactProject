@@ -1,14 +1,23 @@
+import { BrowserRouter, Route, Router, RouterProvider, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/header/Header';
-import ProfileBlock from './components/myProfile/ProfileBlock';
-import Sidebar from './components/sidebar/Sidebar';
+import Messages from './components/Messages/Messages.jsx';
+import Header from './components/header/Header.jsx';
+import ProfileBlock from './components/myProfile/ProfileBlock.jsx';
+import Sidebar from './components/sidebar/Sidebar.jsx';
 
 function App() {
   return (
     <div className="wrap-app">
       <Header />
-      <Sidebar />
-      <ProfileBlock />
+      <div className="app">
+        <Sidebar />
+        <div className='wrap-workspace'>
+          <Routes>
+            <Route path='/profile' Component={ProfileBlock} />
+            <Route path='/messages' Component={Messages} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

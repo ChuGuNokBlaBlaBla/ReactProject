@@ -1,9 +1,19 @@
-.wrap-app {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.wrap-app{
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
   width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 3fr 9fr;
-  grid-template-areas: "wrap-header wrap-header"
-    "wrap-sidebar wrap-content";
+  grid-template-rows:1fr;
+  grid-template-columns: 130px 9fr;
+  grid-template-areas: "wrap-sidebar wrap-content";
 }

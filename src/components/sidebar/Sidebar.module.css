@@ -1,4 +1,22 @@
 .wrapSidebar {
-    grid-area: wrap-sidebar;
-    background-color: cadetblue;
-  }
+  grid-area: wrap-sidebar;
+  margin-top: 15px;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.linkSidebar{
+  margin-bottom: 10px;;
+}
+
+.linkSidebar:last-child{
+  margin-bottom: 0px;
+}
+
+.active{
+  color: green;
+}
