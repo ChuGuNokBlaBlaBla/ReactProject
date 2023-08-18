@@ -1,0 +1,19 @@
+.friends_users{
+  display: flex;
+  align-items: center;
+  padding: 15px 0 15px 0;
+  border-bottom: 1px solid #dce1e6;
+}
+
+.friends_users:last-child{
+  border: 0;
+}
+
+.friends_users_photo img{
+  width: 80px;
+  border-radius: 50%;
+}
+
+.friends_users_info{
+  margin: 0 30px 0 20px;
+}

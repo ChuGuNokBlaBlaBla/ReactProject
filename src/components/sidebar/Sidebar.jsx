@@ -9,8 +9,8 @@ const Sidebar = () => {
             <div className={s.sidebar}>
                 <NavLink to="/profile" className={({ isActive }) => isActive ? s.active : ""}>Мой профиль</NavLink>
                 <NavLink to="/messages" className={({ isActive }) => isActive ? s.active : ""}>Мои сообщения</NavLink>
-                <NavLink to="/music" className={({ isActive }) => isActive ? s.active : ""}>Моя музыка</NavLink>
-                <NavLink to="/settings" className={({ isActive }) => isActive ? s.active : ""}>Настройка</NavLink>
+                <NavLink to="/my_friends" className={({ isActive }) => isActive ? s.active : ""}>Мои друзья</NavLink>
+                <NavLink to="/settings" className={({ isActive }) => isActive ? s.active : ""}>Фоторафии</NavLink>
             </div>
         </div>
     )
