@@ -6,7 +6,7 @@ import ProfileBlock from './components/myProfile/ProfileBlock.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import Friends from './components/Friends/Friends';
 
-function App() {
+function App(props) {
   return (
     <div className="wrap-app">
       <Header />
@@ -14,9 +14,9 @@ function App() {
         <Sidebar />
         <div className='wrap-workspace'>
           <Routes>
-            <Route path='/profile' Component={ProfileBlock} />
-            <Route path='/messages' Component={Messages} />
-            <Route path='/my_friends' Component={Friends} />
+            <Route path='/profile' element={ <ProfileBlock />} />
+            <Route path='/messages' element={ <Messages listFriends={props.listFriends} />} />
+            <Route path='/my_friends' element={ <Friends listFriends={props.listFriends} />} />
           </Routes>
         </div>
       </div>

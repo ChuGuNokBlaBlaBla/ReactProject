@@ -2,15 +2,16 @@ import React from 'react';
 import s from './Friends.module.css'
 import FriendUsers from './FriendUser/FriendUser.jsx';
 
-const Friends = () => {
+const Friends = (props) => {
     return (
         <div className={s.friends_list}>
-            <FriendUsers
+            <FriendUsers listFriends={props.listFriends} /> 
+            {/* <FriendUsers listFriends={props.listFriends}
                 path='https://this-person-does-not-exist.com/img/avatar-gen1100f76f4e8987b74901311a50821225.jpg'
                 name='Артур Семченко' />
             <FriendUsers
                 path='https://this-person-does-not-exist.com/img/avatar-gen0ae453a006ab71a0b90a357edb271688.jpg'
-                name='Андрей Пушкарёв' />
+                name='Андрей Пушкарёв' /> */}
         </div>
     )
 }
