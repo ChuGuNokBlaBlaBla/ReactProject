@@ -2,9 +2,9 @@ import React from 'react';
 import s from './FriendUser.module.css'
 
 const FriendUsers = (props) => {
-
+    
     return (
-        props.listFriends.map((f) => {
+        props.listFriends.dataUserPage.map((f) => {
             return (
                 <div className={s.friends_users} id={f.id}>
                     <div className={s.friends_users_photo}>

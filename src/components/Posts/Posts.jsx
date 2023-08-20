@@ -3,13 +3,11 @@ import SendPost from './SendPost/SendPost.jsx';
 import Post from './Post/Post.jsx'
 import s from './Posts.module.css'
 
-const Posts = () => {
+const Posts = (props) => {
     return (
         <div className={s.wrapMyPost}>
-            <SendPost />
-            <Post message='Привет, это мой первый пост'/>
-            <Post message='Привет, это мой второй пост'/>
-            <Post message='Привет, это мой третий пост'/>
+            <SendPost addPost={props.addPost} />
+            <Post state={props.state} />
         </div>
     );
 }

@@ -3,7 +3,6 @@ import s from './Sidebar.module.css'
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
-    console.log(s.sidebar);
     return (
         <div className={s.wrapSidebar}>
             <div className={s.sidebar}>

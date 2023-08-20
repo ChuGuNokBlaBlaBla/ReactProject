@@ -2,7 +2,7 @@ import React from 'react';
 import Posts from '../../components/Posts/Posts.jsx'
 import s from './ProfileBlock.module.css'
 
-const BlockProfile = () => {
+const BlockProfile = (props) => {
     return (
         <div className={s.wrapContent}>
             <div className={s.content}>
@@ -20,7 +20,7 @@ const BlockProfile = () => {
                         <p>Братья и сёстры</p>
                     </div>
                 </div>
-                <Posts />
+                <Posts state={props.state} addPost={props.addPost}/>
             </div>
         </div>
     )

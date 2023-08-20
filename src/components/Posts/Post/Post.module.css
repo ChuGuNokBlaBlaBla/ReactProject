@@ -1,0 +1,13 @@
+.wrapPost{
+    display: flex;
+    align-items: center;
+}
+
+.wrapIcon {
+    margin: 0 10px 0 5px;
+}
+
+.wrapIcon img{
+    width: 30px;
+    border-radius: 50%;
+}
