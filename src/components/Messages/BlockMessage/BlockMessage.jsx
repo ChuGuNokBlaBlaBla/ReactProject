@@ -3,9 +3,8 @@ import s from './BlockMessage.module.css';
 import { NavLink } from 'react-router-dom';
 
 const RenderListMessage = (props) => {
-
     return (
-        props.state.dataUserPage.map((f) => {
+        props.state.profilePage.dataUserPage.map((f) => {
             return (
                 <div className={s.wrapMessageUser}>
                     <NavLink to={"/messages/" + f.id} className={({ isActive }) => isActive ? s.active : ""}>

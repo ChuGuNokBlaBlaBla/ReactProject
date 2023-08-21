@@ -6,8 +6,8 @@ import s from './Posts.module.css'
 const Posts = (props) => {
     return (
         <div className={s.wrapMyPost}>
-            <SendPost addPost={props.addPost} />
-            <Post state={props.state} />
+            <SendPost state={props.state} addPost={props.addPost} changeTextPost={props.changeTextPost} />
+            <Post state={props.state.profilePage} />
         </div>
     );
 }

@@ -6,15 +6,21 @@ const SendPost = (props) => {
     let makeLink = React.createRef();
 
     let addPost = () => {
-        
         let textAdd = makeLink.current.value
         props.addPost(textAdd)
-        debugger
+    }
+
+    let changeValuePost = ()=> {
+        let textChange = makeLink.current.value
+        props.changeTextPost(textChange);
     }
 
     return (
         <div className={s.sendPost}>
-            <input type="text" ref={makeLink} />
+            <textarea type="text" 
+            ref={makeLink} 
+            onChange={changeValuePost}
+            value={props.state.profilePage.changeDataText} />
             <button onClick={addPost}>Отправить</button>
         </div>
     )

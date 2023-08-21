@@ -20,7 +20,7 @@ const BlockProfile = (props) => {
                         <p>Братья и сёстры</p>
                     </div>
                 </div>
-                <Posts state={props.state} addPost={props.addPost}/>
+                <Posts state={props.state} addPost={props.addPost} changeTextPost={props.changeTextPost} />
             </div>
         </div>
     )

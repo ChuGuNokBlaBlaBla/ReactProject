@@ -14,7 +14,7 @@ function App(props) {
         <Sidebar />
         <div className='wrap-workspace'>
           <Routes>
-            <Route path='/profile' element={ <ProfileBlock state={props.state} addPost={props.addPost} />} />
+            <Route path='/profile' element={ <ProfileBlock state={props.state} addPost={props.addPost} changeTextPost={props.changeTextPost}/>} />
             <Route path='/my_friends' element={ <Friends state={props.state} />} />
             <Route path='/messages' element={ <Messages state={props.state} />} />
           </Routes>
