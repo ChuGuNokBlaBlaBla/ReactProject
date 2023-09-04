@@ -6,13 +6,14 @@ const SendPost = (props) => {
     let makeLink = React.createRef();
 
     let addPost = () => {
-        let textAdd = makeLink.current.value
-        props.addPost(textAdd)
+        let textPost = makeLink.current.value
+        // props.addPost(textAdd)
+        props.dispatch({type: 'ADD-POST', textPost: textPost})
     }
 
     let changeValuePost = ()=> {
         let textChange = makeLink.current.value
-        props.changeTextPost(textChange);
+        props.dispatch({type: 'CHANGE-VALUE-POST', textPost: textChange})
     }
 
     return (

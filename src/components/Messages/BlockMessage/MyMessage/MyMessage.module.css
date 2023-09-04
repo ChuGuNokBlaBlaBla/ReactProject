@@ -1,0 +1,31 @@
+.wrapMyMessage{
+    margin: 10px 0 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.blockIconMessage{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    margin: 0 10px 0 15px;
+    width: 600px;
+}
+
+.message{
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    margin-right: 10px;
+}
+
+.wrapMyIcon{
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+}
+
+.wrapMyIcon img{
+    width: 40px;
+    border-radius: 50%;
+}

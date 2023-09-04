@@ -11,7 +11,7 @@ const BlockProfile = (props) => {
                 </div>
                 <div className={s.wrapAboutMe}>
                     <div className={s.myPhoto}>
-                            <img src="https://static.kulturologia.ru/files/u23606/2360606209.jpg" />
+                        <img src="https://static.kulturologia.ru/files/u23606/2360606209.jpg" />
                     </div>
                     <div className={s.profileInfo}>
                         <h2 className={s.profileInfoName}>Иван Старов</h2>
@@ -20,7 +20,11 @@ const BlockProfile = (props) => {
                         <p>Братья и сёстры</p>
                     </div>
                 </div>
-                <Posts state={props.state} addPost={props.addPost} changeTextPost={props.changeTextPost} />
+                <Posts state={props.state}
+                    dispatch={props.dispatch}
+                // addPost={props.addPost} 
+                // changeTextPost={props.changeTextPost} 
+                />
             </div>
         </div>
     )

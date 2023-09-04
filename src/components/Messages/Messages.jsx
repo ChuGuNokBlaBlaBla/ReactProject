@@ -6,7 +6,7 @@ const Messages = (props) => {
     return (
         <div className={s.wrapMessages}>
             <div>
-                <RenderListMessage state={props.state}/>
+                <RenderListMessage state={props.state} dispatch={props.dispatch} />
             </div>
         </div>
     )
