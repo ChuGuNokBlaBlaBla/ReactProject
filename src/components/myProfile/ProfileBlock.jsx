@@ -11,7 +11,7 @@ const BlockProfile = (props) => {
                 </div>
                 <div className={s.wrapAboutMe}>
                     <div className={s.myPhoto}>
-                        <img src="https://static.kulturologia.ru/files/u23606/2360606209.jpg" />
+                        <img src="https://nashzelenyimir.ru/wp-content/uploads/2018/01/%D0%9D%D0%BE%D1%81%D0%BE%D1%80%D0%BE%D0%B3-%D1%84%D0%BE%D1%82%D0%BE.jpg" />
                     </div>
                     <div className={s.profileInfo}>
                         <h2 className={s.profileInfoName}>Иван Старов</h2>
