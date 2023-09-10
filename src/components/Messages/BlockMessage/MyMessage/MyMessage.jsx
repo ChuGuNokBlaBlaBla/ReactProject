@@ -19,7 +19,7 @@ const MyMessage = (props) => {
             <textarea type='text'
                 ref={makeLink}
                 onChange={changeMyMessage}
-                value={props.state.dataMessage}
+                value={props.state.dialogs.dataMessage}
             />
              <button onClick={sentMessage}>Отправить</button>
         </div>

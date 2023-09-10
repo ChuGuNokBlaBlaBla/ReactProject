@@ -1,3 +1,6 @@
+import dialogsReduser from "./dialogsReducer";
+import profileReducer from "./profileReducer";
+
 let dataObj = {
     _dataApp: {
         profilePage: {
@@ -48,9 +51,12 @@ let dataObj = {
                 },
             ],
             changeDataText: '',
-            sentMessage: [],
+            
         },
-        dataMessage: ''
+        dialogs: {
+            sentMessage: [],
+            dataMessage: ''
+        }
     },
     getDataApp() {
         return (this._dataApp)
@@ -88,15 +94,18 @@ let dataObj = {
         this.reloadPageObserver = observer
     },
     dispatch(action) {
-        if (action.type === 'CHANGE-VALUE-POST') {
-            this.changeTextPost(action.textPost)
-        } else if (action.type === 'ADD-POST') {
-            this.addPost(action.textPost)
-        } else if (action.type === 'MY-MESSAGE') {
-            this.addMessage(action.myMessage)
-        } else if (action.type === 'SENT-MESSAGE') {
-            this.sendMessage(action.myMessage)
-        }
+        this._dataApp.profilePage = profileReducer(this._dataApp.profilePage, action)
+        this._dataApp.dialogs = dialogsReduser(this._dataApp.dialogs, action)
+        this.reloadPageObserver(this._dataApp)
+        // if (action.type === 'CHANGE-VALUE-POST') {
+        //     this.changeTextPost(action.textPost)
+        // } else if (action.type === 'ADD-POST') {
+        //     this.addPost(action.textPost)
+        // } else if (action.type === 'MY-MESSAGE') {
+        //     this.addMessage(action.myMessage)
+        // } else if (action.type === 'SENT-MESSAGE') {
+        //     this.sendMessage(action.myMessage)
+        // }
     }
 
 }

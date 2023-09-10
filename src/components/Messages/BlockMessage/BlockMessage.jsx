@@ -7,7 +7,7 @@ import SendMessage from './MyMessage/SendMessage';
 const RenderListMessage = (props) => {
     return (
         <div>
-            <SendMessage state={props.state.profilePage}/>
+            <SendMessage state={props.state.dialogs}/>
             <MyMessage state={props.state} dispatch={props.dispatch} />
         </div>
         
