@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import dataObj from './redux/state'
 import reportWebVitals from './reportWebVitals';
+import store from './redux/store-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,6 +17,7 @@ const renderDOM = (dataApp) => {
       </BrowserRouter>
     </React.StrictMode>
   );
+  console.log(store);
 }
 
 renderDOM(dataObj.getDataApp())
