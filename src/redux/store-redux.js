@@ -6,7 +6,7 @@ import dialogsReduser from "./dialogsReducer";
 const store = configureStore({
     reducer: {
         profilePage: profileReducer,
-        dataPosts: dialogsReduser,
+        dialogs: dialogsReduser,
     }
 })
 

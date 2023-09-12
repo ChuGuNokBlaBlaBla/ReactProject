@@ -1,17 +1,19 @@
 import React from 'react';
-import s from './BlockMessage.module.css';
-// import { NavLink } from 'react-router-dom';
-import MyMessage from './MyMessage/MyMessage';
-import SendMessage from './MyMessage/SendMessage';
+import SendMessage from './MyMessage/SendMessage'
+import MyMessage from './MyMessage/MyMessage'
 
-const RenderListMessage = (props) => {
+const ContListMessage = (props) => {
     return (
         <div>
-            <SendMessage state={props.state.dialogs}/>
-            <MyMessage state={props.state} dispatch={props.dispatch} />
+            <SendMessage dataSentMessage={props.dataSentMessage} />
+            <MyMessage
+                dispatch={props.dispatch}
+                valueMessage={props.valueMessage}
+                changeText={props.changeText}
+                newMessage={props.newMessage}
+            />
         </div>
-        
     )
 }
 
-export default RenderListMessage;
+export default ContListMessage;

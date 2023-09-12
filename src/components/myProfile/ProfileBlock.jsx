@@ -1,5 +1,5 @@
 import React from 'react';
-import Posts from '../../components/Posts/Posts.jsx'
+import ContPosts from '../../components/Posts/Posts.jsx'
 import s from './ProfileBlock.module.css'
 
 const BlockProfile = (props) => {
@@ -20,11 +20,7 @@ const BlockProfile = (props) => {
                         <p>Братья и сёстры</p>
                     </div>
                 </div>
-                <Posts state={props.state}
-                    dispatch={props.dispatch}
-                // addPost={props.addPost} 
-                // changeTextPost={props.changeTextPost} 
-                />
+                <ContPosts state={props.state}/>
             </div>
         </div>
     )

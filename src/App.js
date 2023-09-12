@@ -1,4 +1,4 @@
-import {  Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Messages from './components/Messages/Messages.jsx';
 import Header from './components/header/Header.jsx';
@@ -13,13 +13,9 @@ function App(props) {
         <Sidebar />
         <div className='wrap-workspace'>
           <Routes>
-            <Route path='/profile' element={ <ProfileBlock state={props.state} 
-            dispatch={props.dispatch}
-            // addPost={props.addPost} 
-            // changeTextPost={props.changeTextPost}
-            />} />
-            <Route path='/my_friends' element={ <Friends state={props.state} />} />
-            <Route path='/messages/' element={ <Messages state={props.state} dispatch={props.dispatch} />} />
+            <Route path='/profile' element={<ProfileBlock state={props.state}/>} />
+            <Route path='/my_friends' element={<Friends state={props.state} />} />
+            <Route path='/messages/' element={<Messages />} />
           </Routes>
         </div>
       </div>

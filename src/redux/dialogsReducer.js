@@ -1,19 +1,46 @@
-const dialogsReduser = (state, action) => {
+import { createSlice } from "@reduxjs/toolkit";
 
-    if (action.type === 'MY-MESSAGE') {
-        state.dataMessage = action.myMessage
-    } else if (action.type === 'SENT-MESSAGE') {
-
-        let dataSender = {
-            myMessage: action.myMessage,
-            src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
+const dialogsReduser = createSlice({
+    name: 'dialogs',
+    initialState: {
+        sentMessage: [],
+        valueMessage: ''
+    },
+    reducers: {
+        newMessage(state, action) {
+            state.sentMessage.push({
+                myMessage: action.payload,
+                src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
+            })
+            state.valueMessage = '';
+        },
+        changeText(state, action) {
+            state.valueMessage = action.payload
         }
-        state.sentMessage.push(dataSender)
-        state.dataMessage = '';
     }
+})
 
-    return state
+export const {newMessage, changeText} = dialogsReduser.actions
 
-}
+export default dialogsReduser.reducer
 
-export default dialogsReduser;
+
+// const dialogsReduser = (state, action) => {
+
+//     if (action.type === 'MY-MESSAGE') {
+//         state.valueMessage = action.myMessage
+//     } else if (action.type === 'SENT-MESSAGE') {
+
+// let dataSender = {
+//     myMessage: action.myMessage,
+//     src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
+// }
+// state.sentMessage.push(dataSender)
+// state.valueMessage = '';
+//     }
+
+//     return state
+
+// }
+
+// export default dialogsReduser;

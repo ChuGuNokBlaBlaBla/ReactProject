@@ -6,12 +6,12 @@ const MyMessage = (props) => {
 
     let changeMyMessage = () => {
         let message = makeLink.current.value
-        props.dispatch({type: 'MY-MESSAGE', myMessage: message})
+        props.dispatch(props.changeText(message))
     }
 
     let sentMessage = () =>{
         let message = makeLink.current.value
-        props.dispatch({type: 'SENT-MESSAGE', myMessage: message})
+        props.dispatch(props.newMessage(message))
     }
 
     return (
@@ -19,7 +19,7 @@ const MyMessage = (props) => {
             <textarea type='text'
                 ref={makeLink}
                 onChange={changeMyMessage}
-                value={props.state.dialogs.dataMessage}
+                value={props.valueMessage}
             />
              <button onClick={sentMessage}>Отправить</button>
         </div>

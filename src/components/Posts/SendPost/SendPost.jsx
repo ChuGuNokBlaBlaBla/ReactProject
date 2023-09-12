@@ -4,24 +4,25 @@ import s from './SendPost.module.css';
 const SendPost = (props) => {
 
     let makeLink = React.createRef();
-
+    
     let addPost = () => {
         let textPost = makeLink.current.value
-        // props.addPost(textAdd)
-        props.dispatch({type: 'ADD-POST', textPost: textPost})
+        props.dispatch(props.newPost(textPost))
     }
 
-    let changeValuePost = ()=> {
-        let textChange = makeLink.current.value
-        props.dispatch({type: 'CHANGE-VALUE-POST', textPost: textChange})
+    let changeValuePost = () => {
+        let textPost = makeLink.current.value
+        props.dispatch(props.changeText(textPost))
     }
 
     return (
         <div className={s.sendPost}>
-            <textarea type="text" 
-            ref={makeLink} 
-            onChange={changeValuePost}
-            value={props.state.profilePage.changeDataText} />
+            <textarea 
+            type="text"
+                ref={makeLink}
+                onChange={changeValuePost}
+                value={props.valuePost}
+            />
             <button onClick={addPost}>Отправить</button>
         </div>
     )

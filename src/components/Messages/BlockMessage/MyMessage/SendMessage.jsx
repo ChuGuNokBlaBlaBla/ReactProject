@@ -2,8 +2,9 @@ import React from 'react';
 import s from './MyMessage.module.css'
 
 const SendMessage = (props) => {
+
     return (
-        props.state.sentMessage.map((f) => {
+        props.dataSentMessage.map((f) => {
             return (
                 <div className={s.wrapMyMessage}>
                     <div className={s.blockIconMessage}>
