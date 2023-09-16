@@ -1,8 +1,15 @@
 .friends_users{
-  display: flex;
+  display: grid;
+  grid-template-columns: 30% 60% 10%;
   align-items: center;
   padding: 15px 0 15px 0;
   border-bottom: 1px solid #dce1e6;
+}
+
+
+.wrap_user_info{
+  display: flex;
+  align-items: center;
 }
 
 .friends_users:last-child{
@@ -14,6 +21,10 @@
   border-radius: 50%;
 }
 
-.friends_users_info{
-  margin: 0 30px 0 20px;
+.friends_users_name{
+  margin-left: 30px;
+}
+
+.message_friends{
+  margin-right:30px;
 }

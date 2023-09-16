@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './Friends.module.css'
-import FriendUsers from './FriendUser/FriendUser.jsx';
+import FrinedsListContainer from './FriendsListContainer';
 
 const Friends = (props) => {
     
     return (
         <div className={s.friends_list}>
-            <FriendUsers listFriends={props.state} /> 
+            <FrinedsListContainer />
         </div>
     )
 }

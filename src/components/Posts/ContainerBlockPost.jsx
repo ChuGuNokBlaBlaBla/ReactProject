@@ -1,28 +1,37 @@
 import React from 'react';
 import SendPost from './SendPost/SendPost.jsx';
-import Post from './Post/Post.jsx'
+import Posts from './Post/Posts.jsx'
 import s from './Posts.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeText, newPost } from '../../redux/profileReducer.js';
 
-const ContPosts = (props) => {
+const ContainerBlockPosts = (props) => {
 
     const dispatch = useDispatch(),
         valuePost = useSelector(state => state.profilePage.valueTextPost),
         dataSentPost = useSelector(state => state.profilePage.dataPosts)
 
+    let addPost = () => {
+        let textPost = valuePost;
+        dispatch(newPost(textPost));
+    }
+
+    let changeValuePost = (e) => {
+        let textPost = e.target.value;
+        dispatch(changeText(textPost));
+    }
+
     return (
         <div className={s.wrapMyPost}>
-            <SendPost state={props.state} 
-                changeText={changeText}
-                newPost={newPost}
-                dispatch={dispatch}
+            <SendPost
                 valuePost={valuePost}
+                addPost={addPost}
+                changeValuePost={changeValuePost}
             />
-            <Post dataSentPost={dataSentPost} />
+            <Posts dataSentPost={dataSentPost} />
         </div>
     );
 }
 
-export default ContPosts;
+export default ContainerBlockPosts;
 
