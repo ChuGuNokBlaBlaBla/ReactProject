@@ -1,29 +1,48 @@
 import React from 'react';
+import store from '../../../../redux/store-redux';
+import { changeText, newMessage } from '../../../../redux/dialogsReducer';
+import { connect } from 'react-redux';
+import BlockMyMessage from './ContinerMyMessage';
 
-const MyMessage = (props) => {
+// const MyMessage = (props) => {
+//     // let changeMyMessage = (e) => {
+//     //     let message = e.target.value
+//     //     props.dispatch(props.changeText(message))
+//     // }
 
-    let makeLink = React.createRef()
+//     // let sentMessage = () => {
+//     //     let message = makeLink.current.value
+//     //     props.dispatch(props.newMessage(message))
+//     // }
 
-    let changeMyMessage = () => {
-        let message = makeLink.current.value
-        props.dispatch(props.changeText(message))
+//     // return (
+//     //     <div>
+//     //         <textarea type='text'
+//     //             ref={makeLink}
+//     //             onChange={changeMyMessage}
+//     //             value={props.valueMessage}
+//     //         />
+//     //         <button onClick={sentMessage}>Отправить</button>
+//     //     </div>
+//     // )
+// }
+
+const mapStateToProps = (state) => {
+    return {
+        valueMessage: state.dialogs.valueMessage
     }
-
-    let sentMessage = () =>{
-        let message = makeLink.current.value
-        props.dispatch(props.newMessage(message))
+}
+const mapDispatchToProps = (dispatch, state) => {
+    return {
+        sentMessage: () => {
+            let message = state.valueMessage;
+            dispatch(newMessage(message))
+        },
+        changeMyMessage: (e) => {
+            let message = e.target.value
+            dispatch(changeText(message))
+        }
     }
-
-    return (
-        <div>
-            <textarea type='text'
-                ref={makeLink}
-                onChange={changeMyMessage}
-                value={props.valueMessage}
-            />
-             <button onClick={sentMessage}>Отправить</button>
-        </div>
-    )
 }
 
-export default MyMessage
+export default connect(mapStateToProps, mapDispatchToProps)(BlockMyMessage);

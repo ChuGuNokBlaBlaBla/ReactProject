@@ -1,11 +1,9 @@
-import React from 'react';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import { changeText, newPost } from '../../../../redux/profileReducer';
 import SendPost from '../SendPost';
 import store from '../../../../redux/store-redux';
 
 const mapStateToProps = (state) => {
-
     return {
         valuePost: state.profilePage.valueTextPost
     }
@@ -24,6 +22,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const RenderNewComponents = connect(mapStateToProps, mapDispatchToProps)(SendPost);
+const ContainerMyPosts = connect(mapStateToProps, mapDispatchToProps)(SendPost);
 
-export default RenderNewComponents;
+export default ContainerMyPosts;

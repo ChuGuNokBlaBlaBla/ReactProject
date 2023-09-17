@@ -52,9 +52,10 @@ const profileData = {
 }
 const profileReducer = createSlice({
     name: 'profilePage',
-    initialState: profileData,
+    initialState: {...profileData},
     reducers: {
         newPost(state, action) {
+            state.dataPosts = [...state.dataPosts]
             state.dataPosts.push({
                 message: action.payload,
                 src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
