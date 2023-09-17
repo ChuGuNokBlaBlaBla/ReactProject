@@ -33,18 +33,22 @@ const profileData = {
         {
             message: 'Привет, это мой первый пост',
             src: 'https://this-person-does-not-exist.com/img/avatar-gen1100f76f4e8987b74901311a50821225.jpg',
+            id: 1,
         },
         {
             message: 'Привет, это мой второй пост',
             src: 'https://this-person-does-not-exist.com/img/avatar-gen0ae453a006ab71a0b90a357edb271688.jpg',
+            id: 2,
         },
         {
             message: 'Привет, это мой третий пост',
             src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg',
+            id: 3,
         },
         {
             message: 'Привет, это мой четвёртый пост',
             src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg',
+            id: 4,
         },
     ],
     valueTextPost: '',
@@ -57,7 +61,7 @@ const profileReducer = createSlice({
         newPost(state, action) {
             state.dataPosts = [...state.dataPosts]
             state.dataPosts.push({
-                message: action.payload,
+                message: state.valueTextPost,
                 src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
             })
             state.valueTextPost = '';

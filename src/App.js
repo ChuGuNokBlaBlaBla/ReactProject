@@ -14,7 +14,7 @@ function App(props) {
         <div className='wrap-workspace'>
           <Routes>
             <Route path='/profile' element={<ProfileBlock />} />
-            <Route path='/my_friends' element={<Friends state={props.state} />} />
+            <Route path='/my_friends' element={<Friends />} />
             <Route path='/messages/' element={<Messages />} />
           </Routes>
         </div>

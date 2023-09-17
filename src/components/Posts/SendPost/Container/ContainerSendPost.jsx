@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { changeText, newPost } from '../../../../redux/profileReducer';
 import SendPost from '../SendPost';
-import store from '../../../../redux/store-redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -11,10 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addPost: () => {
-            let textPost = store.getState().profilePage.valueTextPost
-            dispatch(newPost(textPost))
-        },
+        addPost: () => dispatch(newPost()),
         changeValuePost: (e) => {
             let textPost = e.target.value
             dispatch(changeText(textPost))

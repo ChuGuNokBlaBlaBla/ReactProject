@@ -5,9 +5,7 @@ import ContListMessage from './BlockMessage/BlockMessage';
 const Messages = (props) => {
     return (
         <div className={s.wrapMessages}>
-            <div>
-                <ContListMessage />
-            </div>
+            <ContListMessage />
         </div>
     )
 }
