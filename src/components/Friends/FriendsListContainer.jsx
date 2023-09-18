@@ -1,14 +1,27 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import FriendUsers from './FriendUser/FriendUser';
+import { connect } from 'react-redux';
+import { followAC, getInitialState, unfollowAC } from '../../redux/friendsReducer';
+import FreindsProfileGet from './FriendUser/FriendProfile';
 
-const FrinedsListContainer = () => {
-
-    const getListFriends = useSelector(state => state.profilePage.dataUserPage)
-    
-    return (
-        <FriendUsers listFriends={getListFriends} />
-    )
+const mapStateToProps = (state) => {
+    return {
+        users: state.friends.items,
+    }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getData: (list) => {
+            dispatch(getInitialState(list))
+        },
+        follow: (userId) => {
+            dispatch(followAC(userId))
+        },
+        unfollow: (userId) => {
+            dispatch(unfollowAC(userId))
+        }
+    }
+}
+
+const FrinedsListContainer = connect(mapStateToProps, mapDispatchToProps)(FreindsProfileGet)
 
 export default FrinedsListContainer

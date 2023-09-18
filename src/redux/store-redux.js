@@ -1,12 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import profileReducer from "./profileReducer";
-import dialogsReduser from "./dialogsReducer";
-
+import dialogsReducer from "./dialogsReducer";
+import friendsReducer from "./friendsReducer";
 
 const store = configureStore({
     reducer: {
         profilePage: profileReducer,
-        dialogs: dialogsReduser,
+        dialogs: dialogsReducer,
+        friends: friendsReducer,
     }
 })
 

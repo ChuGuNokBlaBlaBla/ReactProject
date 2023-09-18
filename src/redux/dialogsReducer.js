@@ -5,7 +5,7 @@ const initialStateDialogs = {
     valueMessage: ''
 }
 
-const dialogsReduser = createSlice({
+const dialogsReducer = createSlice({
     name: 'dialogs',
     initialState: {...initialStateDialogs},
     reducers: {
@@ -23,6 +23,6 @@ const dialogsReduser = createSlice({
     }
 })
 
-export const { newMessage, changeText } = dialogsReduser.actions
+export const { newMessage, changeText } = dialogsReducer.actions
 
-export default dialogsReduser.reducer
+export default dialogsReducer.reducer
