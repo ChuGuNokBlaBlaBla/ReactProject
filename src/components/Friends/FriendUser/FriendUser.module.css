@@ -28,3 +28,13 @@
 .message_friends{
   margin-right:30px;
 }
+
+.itemPage,
+.activePage{
+  cursor: pointer;
+}
+
+.activePage{
+  font-size: 20;
+  font-weight: bold;
+}

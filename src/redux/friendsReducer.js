@@ -11,10 +11,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const friendsReducer = createSlice({
     name: 'friends',
-    initialState: {},
+    initialState: {
+        items:[],
+        totalCount: 0,
+        count: 10,
+        page: 1,
+    },
     reducers: {
-        getInitialState(state, action) {
-            state.items = [...action.payload.items]
+        getInitialStateAC(state, action) {
+            state.items = action.payload.items
+            state.totalCount = action.payload.totalCount
         },
         followAC(state, action) {
             state.items.map((user) => {
@@ -31,11 +37,13 @@ const friendsReducer = createSlice({
                 }
                 return user
             })
-
+        },
+        numPageAC(state, action){
+            state.page = action.payload
         }
     }
 })
 
-export const { followAC, unfollowAC, getInitialState } = friendsReducer.actions;
+export const { followAC, unfollowAC, getInitialStateAC, numPageAC} = friendsReducer.actions;
 
 export default friendsReducer.reducer
