@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { changeText, newMessage } from "../../../../../redux/dialogsReducer"
-import BlockMyMessage from "../ContainerMyMessage"
+import ChatImput from "../ChatImput"
 
 const mapStateToProps = (state) => {
     return {
@@ -17,6 +17,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 } 
 
-const ContainerMyMessage = connect(mapStateToProps, mapDispatchToProps)(BlockMyMessage)
+const ContainerMyMessage = connect(mapStateToProps, mapDispatchToProps)(ChatImput)
 
 export default ContainerMyMessage

@@ -1,6 +1,22 @@
 import React from 'react';
-import PostsRender from './PostsRender';
+import s from './Post.module.css'
 
-const Posts = (props) => props.dataSentPost.map((f) => <PostsRender key={f.id} src={f.src} message={f.message} />)
+class Posts extends React.Component{
+    render(){
+        return (
+            this.props.dataSentPost.map((f) => {
+                return (
+                    <div className={s.wrapPost} >
+                        <div className={s.wrapIcon}>
+                            <img src={f.src} />
+                        </div>
+                        <div className={s.sendPost}>{f.message}</div>
+                    </div>
+                )
+            })
+    
+        )
+    }
+}
 
 export default Posts;

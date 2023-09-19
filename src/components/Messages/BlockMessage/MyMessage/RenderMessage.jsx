@@ -1,7 +1,23 @@
 import React from 'react';
 import s from './MyMessage.module.css'
-import ContainerSentMessage from './Container/ContainerSentMessage';
 
-const RenderMessage = (props) => props.dataSentMessage.map((f) => <ContainerSentMessage myMessage={f.myMessage} src={f.src} />)
+class RenderMessage extends React.Component {
+    render() {
+        return (
+            this.props.dataSentMessage.map((data) => {
+                return (
+                    <div className={s.wrapMyMessage}>
+                        <div className={s.blockIconMessage}>
+                            <div className={s.message}>{data.myMessage}</div>
+                            <div className={s.wrapMyIcon}>
+                                <img src={data.src} />
+                            </div>
+                        </div>
+                    </div>
+                )
+            })
+        )
+    }
+}
 
 export default RenderMessage

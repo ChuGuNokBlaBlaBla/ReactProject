@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { followAC, getInitialState, unfollowAC } from '../../redux/friendsReducer';
-import FreindsProfileGet from './FriendUser/FriendProfile';
+import FreindsProfileGet from './FriendUser/FriendsRender';
 
 const mapStateToProps = (state) => {
     return {
