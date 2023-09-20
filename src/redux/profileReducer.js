@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const profileData = {
     dataUserPage: [
@@ -52,7 +52,7 @@ const profileData = {
         },
     ],
     valueTextPost: '',
-    
+    activeUser: null,    
 }
 const profileReducer = createSlice({
     name: 'profilePage',
@@ -68,10 +68,19 @@ const profileReducer = createSlice({
         },
         changeText(state, action) {
             state.valueTextPost = action.payload
+        },
+        setUser(state, action) {
+            
+            state.activeUser = action.payload
+            // state.activeUser = {...action.payload}
         }
     }
 })
 
-export const {newPost, changeText} = profileReducer.actions;
+let store = configureStore(profileReducer)
+
+window.store = store
+
+export const {newPost, changeText, setUser} = profileReducer.actions;
 
 export default profileReducer.reducer

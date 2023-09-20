@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './ProfileBlock.module.css'
 import MyDataProfile from './MyDataProfile';
-import ContainerBlockPosts from '../Posts/ContainerBlockPost';
+import ContainerBlockPosts from './Posts/ContainerBlockPost';
 
 const BlockProfile = (props) => {
     return (
         <div className={s.wrapContent}>
-            <MyDataProfile />
+            <MyDataProfile state={props.state}/>
             <ContainerBlockPosts />
         </div>
     )
