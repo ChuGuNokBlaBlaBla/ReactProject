@@ -12,17 +12,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const friendsReducer = createSlice({
     name: 'friends',
     initialState: {
-        items:[],
+        items: [],
         totalCount: 0,
         count: 10,
         page: 1,
+        isRequested: false,
     },
     reducers: {
-        getInitialStateAC(state, action) {
+        getInitialState(state, action) {
             state.items = action.payload.items
             state.totalCount = action.payload.totalCount
         },
-        followAC(state, action) {
+        getNumberPage(state, action) {
+            state.page = action.payload
+        },
+        isRequested(state, action) {
+            state.isRequested = action.payload
+        },
+        follow(state, action) {
             state.items.map((user) => {
                 if (action.payload === user.id) {
                     return user.followed = true
@@ -30,20 +37,17 @@ const friendsReducer = createSlice({
                 return user
             })
         },
-        unfollowAC(state, action) {
+        unfollow(state, action) {
             state.items.map((user) => {
                 if (user.id === action.payload) {
                     return user.followed = false
                 }
                 return user
             })
-        },
-        numPageAC(state, action){
-            state.page = action.payload
         }
     }
 })
 
-export const { followAC, unfollowAC, getInitialStateAC, numPageAC} = friendsReducer.actions;
+export const { getInitialState, getNumberPage, isRequested, follow, unfollow } = friendsReducer.actions;
 
 export default friendsReducer.reducer
