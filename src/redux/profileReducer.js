@@ -1,6 +1,15 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const profileData = {
+    myData: {
+        "aboutMe": "я обычный парень",
+        "lookingForAJob": "в поиске новых знаний",
+        "fullName": "Старый",
+        "photos": {
+            "small": "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
+            "large": "https://naked-science.ru/wp-content/uploads/2016/04/article_supercoolpics_01_10072012124623.jpg"
+        }
+    },
     dataUserPage: [
         {
             id: '0',
@@ -52,11 +61,10 @@ const profileData = {
         },
     ],
     valueTextPost: '',
-    activeUser: null,    
 }
 const profileReducer = createSlice({
     name: 'profilePage',
-    initialState: {...profileData},
+    initialState: { ...profileData },
     reducers: {
         newPost(state, action) {
             state.dataPosts = [...state.dataPosts]
@@ -68,19 +76,10 @@ const profileReducer = createSlice({
         },
         changeText(state, action) {
             state.valueTextPost = action.payload
-        },
-        setUser(state, action) {
-            
-            state.activeUser = action.payload
-            // state.activeUser = {...action.payload}
         }
     }
 })
 
-let store = configureStore(profileReducer)
-
-window.store = store
-
-export const {newPost, changeText, setUser} = profileReducer.actions;
+export const { newPost, changeText } = profileReducer.actions;
 
 export default profileReducer.reducer

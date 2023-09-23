@@ -4,7 +4,7 @@ import s from './Posts.module.css'
 import ContainerMyPosts from './SendPost/Container/ContainerSendPost.jsx';
 import { useSelector } from 'react-redux';
 
-const ContainerBlockPosts = (props) => {
+const ContainerBlockPosts = () => {
     const dataSentPost = useSelector(state => state.profilePage.dataPosts)
     return (
         <div className={s.wrapMyPost}>

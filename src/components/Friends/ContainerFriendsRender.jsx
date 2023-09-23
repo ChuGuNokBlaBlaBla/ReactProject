@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getInitialState, getNumberPage, isRequested, follow, unfollow } from '../../redux/friendsReducer';
-import FreindsProfileGet from './FriendUser/FriendsRender';
+import FriendsRender from './FriendUser/FriendsRender';
 
 const mapStateToProps = (state) => {
     return {
@@ -11,7 +11,5 @@ const mapStateToProps = (state) => {
         requsetStatus: state.friends.isRequested,
     }
 }
-
-const FrinedsListContainer = connect(mapStateToProps, { getInitialState, follow, unfollow, getNumberPage, isRequested })(FreindsProfileGet)
-
-export default FrinedsListContainer;
+const ContainerFriendsRender = connect(mapStateToProps, { getInitialState, follow, unfollow, getNumberPage, isRequested })(FriendsRender)
+export default ContainerFriendsRender

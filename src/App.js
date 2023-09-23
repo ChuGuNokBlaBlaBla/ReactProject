@@ -2,10 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Messages from './components/Messages/Messages.jsx';
 import Header from './components/header/Header.jsx';
-import ProfileBlock from './components/myProfile/ProfileBlock.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
-import Friends from './components/Friends/Friends';
 import ContainerProfile from './components/myProfile/ContinerProfile/ContainerProfile';
+import ContainerProfileFriend from './components/Friends/RenderFriend/ContainerProfileFriend';
+import ContainerFriendsRender from './components/Friends/ContainerFriendsRender';
+
 function App(props) {
   return (
     <div className="wrap-app">
@@ -14,8 +15,9 @@ function App(props) {
         <Sidebar />
         <div className='wrap-workspace'>
           <Routes>
-            <Route path='/profile' element={<ContainerProfile />} />
-            <Route path='/my_friends' element={<Friends />} />
+            <Route path='/profile/' element={<ContainerProfile />} />
+            <Route path='/friends/page/:id' element={<ContainerProfileFriend />} />
+            <Route path='/my_friends/' element={<ContainerFriendsRender />} />
             <Route path='/messages/' element={<Messages />} />
           </Routes>
         </div>
