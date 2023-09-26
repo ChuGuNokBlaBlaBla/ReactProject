@@ -1,17 +1,15 @@
 import React from "react";
 
-class ChatImput extends React.Component{
-    render(){
-        return (
-            <div>
-                <textarea type='text'
-                    onChange={this.props.changeMyMessage}
-                    value={this.props.valueMessage}
-                />
-                 <button onClick={this.props.sentMessage}>Отправить</button>
-            </div>
-        )
-    }
+const ChatImput = (props) => {
+    return (
+        <div>
+            <textarea type='text'
+                onChange={(e)=> props.changeText(e.target.value)}
+                value={props.valueMessage}
+            />
+            <button onClick={props.newMessage}>Отправить</button>
+        </div>
+    )
 }
 
 export default ChatImput;

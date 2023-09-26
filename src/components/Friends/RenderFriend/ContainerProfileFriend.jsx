@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setUser } from '../../../redux/friendsReducer';
-import axios from 'axios';
+import { createProfileFrined } from '../../../redux/friendsReducer';
 import { useParams } from 'react-router-dom';
 import s from '../Friends.module.css'
 import Preloader from '../../Common/Preloader/Preloader';
@@ -16,7 +15,9 @@ const mapStateToProps = (state) => {
 const ContainerProfileFriend = (props) => {
 
     let paramsId = useParams()
-    useEffect(() => { axios.get(`https://social-network.samuraijs.com/api/1.0//profile/${paramsId.id}`).then((list) => props.setUser(list.data)) }, [])
+    useEffect(() => {
+        props.createProfileFrined(paramsId.id)
+    }, [])
 
     return (
         props.activeUser === null ? <Preloader /> :
@@ -40,4 +41,4 @@ const ContainerProfileFriend = (props) => {
     )
 }
 
-export default connect(mapStateToProps, { setUser })(ContainerProfileFriend)
+export default connect(mapStateToProps, { createProfileFrined })(ContainerProfileFriend)

@@ -9,9 +9,7 @@ const mapStateToProps = (state)=> {
 }
 
 const ContainerProfile = (props)=> {
-    return(
-        <BlockProfile state={props.user}/>
-    )
+    return <BlockProfile state={props.user}/>
 }
 
 export default connect(mapStateToProps, {} )(ContainerProfile)

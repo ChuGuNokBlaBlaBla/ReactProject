@@ -74,12 +74,12 @@ const profileReducer = createSlice({
             })
             state.valueTextPost = '';
         },
-        changeText(state, action) {
+        changeValuePost(state, action) {
             state.valueTextPost = action.payload
         }
     }
 })
 
-export const { newPost, changeText } = profileReducer.actions;
+export const { newPost, changeValuePost } = profileReducer.actions;
 
 export default profileReducer.reducer

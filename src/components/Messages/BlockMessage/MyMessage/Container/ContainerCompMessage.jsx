@@ -7,16 +7,7 @@ const mapStateToProps = (state) => {
         valueMessage: state.dialogs.valueMessage
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        sentMessage: () => dispatch(newMessage()),
-        changeMyMessage: (e) => {
-            let message = e.target.value
-            dispatch(changeText(message))
-        }
-    }
-} 
 
-const ContainerMyMessage = connect(mapStateToProps, mapDispatchToProps)(ChatImput)
+const ContainerMyMessage = connect(mapStateToProps, {newMessage, changeText})(ChatImput)
 
 export default ContainerMyMessage

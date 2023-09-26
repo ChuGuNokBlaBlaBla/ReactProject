@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import Users from './FunctionalСomponent/Users';
 import NumberPages from './FunctionalСomponent/NumberPages';
 import Preloader from '../../Common/Preloader/Preloader';
@@ -7,28 +6,23 @@ import Preloader from '../../Common/Preloader/Preloader';
 const FriendsRender = (props) => {
 
     useEffect(() => {
-        props.isRequested(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${props.page}&count=${props.count}`).then((list) => {
-            props.getInitialState(list.data)
-            props.isRequested(false)
-        })
+        props.getListUsers(props.page, props.count)
     }, [])
 
     const getUsers = (numberPage) => {
-        props.getNumberPage(numberPage)
-        props.isRequested(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${props.count}`).then((list) => {
-            props.getInitialState(list.data)
-            props.isRequested(false)
-        })
+        props.getListUsers(numberPage, props.count)
     }
 
     return (
         <div>
             {props.requsetStatus === true ? <Preloader /> : null}
             <NumberPages totalCount={props.totalCount} count={props.count} page={props.page} getUsers={getUsers} />
-            <Users users={props.users} message={props.message} unfollow={props.unfollow} follow={props.follow} requestStatus={props.requsetStatus} getUsers={getUsers} />
-
+            <Users users={props.users}
+                getUsers={getUsers}
+                followedProgress={props.followedProgress}
+                follow={props.follow}
+                unfollow={props.unfollow}
+            />
         </div>
     )
 
