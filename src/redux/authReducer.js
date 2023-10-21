@@ -14,7 +14,8 @@ const authReducer = createSlice({
         setDataAuth(state, action) {
             state.data = action.payload.data
             state.resultCode = action.payload.resultCode
-            state.authMe = true
+            state.resultCode === 0? state.authMe = true: state.authMe = false
+            
         }
     }
 })
