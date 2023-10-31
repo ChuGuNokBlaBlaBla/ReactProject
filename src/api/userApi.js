@@ -30,7 +30,28 @@ export const apiUsers = () => {
         },
         renderProfileFriend(paramsId) {
             return (
+                profileApi().renderProfileFriend(paramsId)
+                // instance.get(`profile/${paramsId}`)
+            )
+        }
+    }
+}
+
+export const profileApi = () => {
+    return {
+        renderProfileFriend(paramsId) {
+            return (
                 instance.get(`profile/${paramsId}`)
+            )
+        },
+        getStatus() {
+            return (
+                instance.get(`/profile/status/30033`)
+            )
+        },
+        statusUpdate(message) {
+            return (
+                instance.put(`/profile/status`, {status: message})
             )
         }
     }

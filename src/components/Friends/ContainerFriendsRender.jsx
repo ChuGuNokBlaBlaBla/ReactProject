@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { getListUsers, unfollow, follow } from '../../redux/friendsReducer';
 import FriendsRender from './FriendUser/FriendsRender';
 import { withAuthRedirect } from '../../hoc/withAuthReducer';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -13,6 +14,8 @@ const mapStateToProps = (state) => {
         followedProgress: state.friends.followedProgress
     }
 }
-const ConnectComponentListFriends = withAuthRedirect(FriendsRender)
-
-export default connect(mapStateToProps, { getListUsers, follow, unfollow })(ConnectComponentListFriends)
+export default compose(
+    connect(mapStateToProps, { getListUsers, follow, unfollow }),
+    withAuthRedirect
+)
+(FriendsRender)

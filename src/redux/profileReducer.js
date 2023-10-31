@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { apiUsers, profileApi } from "../api/userApi";
 
 const profileData = {
     myData: {
-        "aboutMe": "я обычный парень",
-        "lookingForAJob": "в поиске новых знаний",
-        "fullName": "Старый",
-        "photos": {
-            "small": "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
-            "large": "https://naked-science.ru/wp-content/uploads/2016/04/article_supercoolpics_01_10072012124623.jpg"
-        }
+        aboutMe: "я обычный парень",
+        lookingForAJob: "в поиске новых знаний",
+        fullName: "Старый",
+        photos: {
+            small: "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
+            large: "https://naked-science.ru/wp-content/uploads/2016/04/article_supercoolpics_01_10072012124623.jpg"
+        },
+        statusProfile: 'Тут должен быть статус',
     },
     dataUserPage: [
         {
@@ -60,7 +62,9 @@ const profileData = {
             id: 4,
         },
     ],
-    valueTextPost: '',
+    statusMessage: '',
+    status: '',
+    editMode: false,
 }
 const profileReducer = createSlice({
     name: 'profilePage',
@@ -76,10 +80,40 @@ const profileReducer = createSlice({
         },
         changeValuePost(state, action) {
             state.valueTextPost = action.payload
-        }
+        },
+        changeStatus(state, action){
+            state.status = action.payload
+        },
+        setStatus(state, action){
+            state.status = action.payload
+        },
+        changeEditMode(state, action){
+            state.editMode = action.payload
+        },
+        changeStatusMessage(state, action){
+            state.status = action.payload
+        },
     }
 })
 
-export const { newPost, changeValuePost } = profileReducer.actions;
+export const { newPost, changeValuePost, changeStatus, setStatus, changeEditMode, changeStatusMessage} = profileReducer.actions;
+
+export const getStatus = (userId) => {
+    return (dispatch) => {
+        profileApi().getStatus(userId).then((list)=> {
+            dispatch(setStatus(list.data))
+        })
+    }
+}
+
+export const statusUpdate = (status) => {
+    return (dispatch) => {
+        profileApi().statusUpdate(status).then((list)=> {
+            if(list.data.resultCode === 0){
+              dispatch(setStatus(status))
+            }
+        })
+    }
+}
 
 export default profileReducer.reducer

@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfileBlock.module.css'
 import Preloader from '../Common/Preloader/Preloader';
+import StatusProfile from './StatusProfle';
 
 const MyDataProfile = (props) => {
     return (
@@ -14,10 +15,22 @@ const MyDataProfile = (props) => {
                         <img src={props.state.photos.large} />
                     </div>
                     <div className={s.profileInfo}>
-                        <h2 className={s.profileInfoName}>{props.state.fullName}</h2>
-                        <p>Дата рождения: 11.11.2011</p>
-                        <p>{props.state.aboutMe}</p>
-                        <p>{props.state.lookingForAJobDescription}</p>
+                        <div><h2 className={s.profileInfoName}>{props.state.fullName}</h2></div>
+                        <div><p>Дата рождения: 11.11.2011</p></div>
+                        <div><p>{props.state.aboutMe}</p></div>
+                        <div>
+                            <StatusProfile statusProfile={props.state.statusProfile}
+                                changeStatus={props.changeStatus}
+                                changeValueMyStatus={props.changeValueMyStatus}
+                                getStatus={props.getStatus}
+                                statusUpdate={props.statusUpdate}
+                                status={props.status}
+                                editMode={props.editMode}
+                                changeEditMode={props.changeEditMode}
+                                statusMessage={props.statusMessage}
+                                changeStatusMessage={props.changeStatusMessage}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
