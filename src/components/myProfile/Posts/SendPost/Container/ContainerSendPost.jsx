@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changeValuePost, newPost } from '../../../../../redux/profileReducer';
+import { newPost } from '../../../../../redux/profileReducer';
 import SendPost from '../SendPost';
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const ContainerMyPosts = connect(mapStateToProps, { newPost, changeValuePost })(SendPost);
+const ContainerMyPosts = connect(mapStateToProps, { newPost })(SendPost);
 
 export default ContainerMyPosts;

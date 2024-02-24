@@ -29,3 +29,8 @@
   .profileInfo p {
     margin: 5px;
   }
+
+  .statusForm{
+    width: 100px;
+    height: 20px;
+  }

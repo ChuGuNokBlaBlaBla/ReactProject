@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { changeText, newMessage } from "../../../../../redux/dialogsReducer"
+import { newMessage } from "../../../../../redux/dialogsReducer"
 import ChatImput from "../ChatImput"
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-const ContainerMyMessage = connect(mapStateToProps, {newMessage, changeText})(ChatImput)
+const ContainerMyMessage = connect(mapStateToProps, {newMessage})(ChatImput)
 
 export default ContainerMyMessage

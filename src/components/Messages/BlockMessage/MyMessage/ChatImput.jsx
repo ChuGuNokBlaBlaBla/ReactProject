@@ -1,14 +1,9 @@
 import React from "react";
+import { ValidateMessage } from "../../../../helper/validate";
 
 const ChatImput = (props) => {
     return (
-        <div>
-            <textarea type='text'
-                onChange={(e)=> props.changeText(e.target.value)}
-                value={props.valueMessage}
-            />
-            <button onClick={props.newMessage}>Отправить</button>
-        </div>
+        <ValidateMessage fildName={'message'} sendingForm={props.newMessage} />
     )
 }
 

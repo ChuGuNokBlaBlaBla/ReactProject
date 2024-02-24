@@ -11,6 +11,9 @@ const profileData = {
             large: "https://naked-science.ru/wp-content/uploads/2016/04/article_supercoolpics_01_10072012124623.jpg"
         },
         statusProfile: 'Тут должен быть статус',
+        statusMessage: 'Какой-то статус',
+        status: 'Это мой статус',
+        editMode: false,
     },
     dataUserPage: [
         {
@@ -61,46 +64,39 @@ const profileData = {
             src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg',
             id: 4,
         },
-    ],
-    statusMessage: '',
-    status: '',
-    editMode: false,
+    ]
 }
 const profileReducer = createSlice({
     name: 'profilePage',
     initialState: { ...profileData },
     reducers: {
         newPost(state, action) {
-            state.dataPosts = [...state.dataPosts]
             state.dataPosts.push({
-                message: state.valueTextPost,
+                message: action.payload.mySentPost,
                 src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
             })
             state.valueTextPost = '';
         },
-        changeValuePost(state, action) {
-            state.valueTextPost = action.payload
-        },
-        changeStatus(state, action){
+        changeStatus(state, action) {
             state.status = action.payload
         },
-        setStatus(state, action){
+        setStatus(state, action) {
             state.status = action.payload
         },
-        changeEditMode(state, action){
-            state.editMode = action.payload
+        changeEditMode(state, action) {
+            state.myData.editMode = action.payload
         },
-        changeStatusMessage(state, action){
-            state.status = action.payload
+        changeStatusMessage(state, action) {
+            state.myData.status = action.payload
         },
     }
 })
 
-export const { newPost, changeValuePost, changeStatus, setStatus, changeEditMode, changeStatusMessage} = profileReducer.actions;
+export const { newPost, changeStatus, setStatus, changeEditMode, changeStatusMessage } = profileReducer.actions;
 
 export const getStatus = (userId) => {
     return (dispatch) => {
-        profileApi().getStatus(userId).then((list)=> {
+        profileApi().getStatus(userId).then((list) => {
             dispatch(setStatus(list.data))
         })
     }
@@ -108,9 +104,9 @@ export const getStatus = (userId) => {
 
 export const statusUpdate = (status) => {
     return (dispatch) => {
-        profileApi().statusUpdate(status).then((list)=> {
-            if(list.data.resultCode === 0){
-              dispatch(setStatus(status))
+        profileApi().statusUpdate(status).then((list) => {
+            if (list.data.resultCode === 0) {
+                dispatch(setStatus(status))
             }
         })
     }

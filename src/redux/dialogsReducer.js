@@ -9,20 +9,16 @@ const dialogsReducer = createSlice({
     name: 'dialogs',
     initialState: {...initialStateDialogs},
     reducers: {
-        newMessage(state) {
+        newMessage(state, action) {
             state.sentMessage = [...state.sentMessage]
             state.sentMessage.push({
-                myMessage: state.valueMessage,
+                myMessage: action.payload.message,
                 src: 'https://this-person-does-not-exist.com/img/avatar-gen132c625df08d5bc57176a3d215d69dd6.jpg'
             })
-            state.valueMessage = '';
-        },
-        changeText(state, action) {
-            state.valueMessage = action.payload
         }
     }
 })
 
-export const { newMessage, changeText } = dialogsReducer.actions
+export const { newMessage } = dialogsReducer.actions
 
 export default dialogsReducer.reducer

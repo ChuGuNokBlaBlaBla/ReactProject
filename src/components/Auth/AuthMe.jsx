@@ -1,9 +1,9 @@
 import React from "react";
-import PageAuth from "./PageAuth";
+import { AuthWebsite } from "../../helper/validate";
 
 const ContainerAuthMe = () => {
     return (<div>
-        <PageAuth />
+        <AuthWebsite />
     </div>)
 }
 

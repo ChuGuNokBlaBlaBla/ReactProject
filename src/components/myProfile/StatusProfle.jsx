@@ -1,29 +1,34 @@
 import React, { useEffect } from "react";
+import s from './ProfileBlock.module.css'
 
 const StatusProfile = (props) => {
 
-    useEffect(()=> {
-        props.getStatus()
-    },[])
+    useEffect(() => {
+        props.fieldProfile.getStatus()
+    }, [])
 
     const activateEditMode = () => {
-        props.changeEditMode(true)   
+        props.fieldProfile.changeEditMode(true)
     }
 
     const closeEditMode = (message) => {
-        props.statusUpdate(message)
-        props.changeEditMode(false)
+        props.fieldProfile.statusUpdate(message)
+        props.fieldProfile.changeEditMode(false)
     }
 
     return <div>
-        {!props.editMode ? <div>
-            <span onClick={()=> {activateEditMode()}} > {props.status} </span>
-        </div> : <div>
-            <input type="text" autoFocus={true}
-                onBlur={()=>{closeEditMode(props.status)}}
-                value={props.status} onChange={(e) => props.changeStatusMessage(e.target.value)} />
-                
-        </div>}
+        {!props.dataUser.editMode ? <div>
+            <span className={s.statusForm} onClick={() => { activateEditMode() }}> {props.dataUser.status} </span>
+        </div> :
+            <form>
+                <input type="text" autoFocus={true}
+                    onBlur={() => { closeEditMode(props.dataUser.status) }}
+                    value={props.dataUser.status} onChange={(e) => {
+                        console.log(props.dataUser.status);
+                        props.fieldProfile.changeStatusMessage(e.target.value)
+                    }} />
+            </form>
+        }
     </div>
 }
 
