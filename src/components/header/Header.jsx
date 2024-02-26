@@ -12,7 +12,7 @@ const Header = (props) => {
                 {props.authMe === false ? 
                     <NavLink to={'/login/'}>
                         <img className={s.authIcon} src={login}></img>
-                    </NavLink> : <img className={s.authIcon} src={myIcon}></img>
+                    </NavLink> : <NavLink to={'/login/'} > <img className={s.authIcon} src={myIcon}></img> </NavLink> 
                 }
             </div>
         </header>

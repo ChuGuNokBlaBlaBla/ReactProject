@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { redirect } from 'react-router-dom'
 
 export const AuthWebsite = (props) => {
 
@@ -8,13 +9,13 @@ export const AuthWebsite = (props) => {
     })
 
     const onSubmit = (formData) => {
-        console.log(formData);
+        props.logIn( formData.email, formData.password, formData.rememberMe)
     }
-
+    
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-                <input {...register('login', { required: 'Поле login обязательно к заполнению' })} type='text' placeholder='Login' name='login'></input>
+                <input {...register('email', { required: 'Поле email обязательно к заполнению' })} type='text' placeholder='email' name='email'></input>
                 {errors?.login && <p>{errors.login.message}</p>}
             </div>
             <div>
@@ -26,6 +27,19 @@ export const AuthWebsite = (props) => {
             </div>
             <button>Log in</button>
         </form>
+    )
+}
+
+export const ExitProfile = (props) => {
+
+    const onSubmit = () => {
+        props.exitProfile()
+    }
+
+    return (
+        <div onClick={()=> onSubmit()} >
+            <button>Выход</button>
+        </div>
     )
 }
 

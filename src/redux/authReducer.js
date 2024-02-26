@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiUsers } from "../api/userApi";
+import { apiUsers, profileApi } from "../api/userApi";
 
 const initialStateAuth = {
-    data: {},
     resultCode: null,
     authMe: false,
 }
@@ -12,20 +11,38 @@ const authReducer = createSlice({
     initialState: initialStateAuth,
     reducers: {
         setDataAuth(state, action) {
-            state.data = action.payload.data
             state.resultCode = action.payload.resultCode
-            state.resultCode === 0? state.authMe = true: state.authMe = false
-            
+            state.resultCode === 0 ? state.authMe = true : state.authMe = false
+
+        },
+        authSucces(state, action) {
+            state.authMe = action.payload
         }
     }
 })
 
-export const { setDataAuth } = authReducer.actions
+export const { setDataAuth, authSucces } = authReducer.actions
 
-export const myLogin = ()=> {
-    return (dispatch)=> {
-        apiUsers().myLogin().then((list)=>{
-            dispatch(setDataAuth(list.data))
+export const myLogin = () => {
+    return (dispatch) => {
+        apiUsers().myLogin().then((response) => {
+            dispatch(setDataAuth(response.data))
+        })
+    }
+}
+
+export const logIn = (email, password, rememberMe) => {
+    return (dispatch) => {
+        profileApi().logIn(email, password, rememberMe).then((response) => {
+            dispatch(myLogin())
+        })
+    }
+}
+
+export const exitProfile = () => {
+    return (dispatch) => {
+        profileApi().logOut().then((response) => {
+            dispatch(setDataAuth(1))
         })
     }
 }

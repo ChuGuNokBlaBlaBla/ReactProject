@@ -24,7 +24,6 @@ const StatusProfile = (props) => {
                 <input type="text" autoFocus={true}
                     onBlur={() => { closeEditMode(props.dataUser.status) }}
                     value={props.dataUser.status} onChange={(e) => {
-                        console.log(props.dataUser.status);
                         props.fieldProfile.changeStatusMessage(e.target.value)
                     }} />
             </form>
