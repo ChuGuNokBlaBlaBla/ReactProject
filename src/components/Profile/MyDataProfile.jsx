@@ -4,7 +4,6 @@ import Preloader from '../Common/Preloader/Preloader';
 import StatusProfile from './StatusProfle';
 
 const MyDataProfile = (props) => {
-    
     return (
         props.dataUser === null ? <Preloader /> :
             <div className={s.content}>
@@ -20,8 +19,7 @@ const MyDataProfile = (props) => {
                         <div><p>Дата рождения: 11.11.2012</p></div>
                         <div><p>{props.dataUser.aboutMe}</p></div>
                         <div>
-                            <StatusProfile dataUser={props.dataUser} fieldProfile={props.fieldProfile}
-                            />
+                            <StatusProfile dataUser={props.dataUser} fieldProfile={props.fieldProfile} status={props.status} />
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import s from './ProfileBlock.module.css'
 const StatusProfile = (props) => {
 
     useEffect(() => {
-        props.fieldProfile.getStatus()
+        props.fieldProfile.getStatus(props.dataUser)
     }, [])
 
     const activateEditMode = () => {
@@ -18,12 +18,12 @@ const StatusProfile = (props) => {
 
     return <div>
         {!props.dataUser.editMode ? <div>
-            <span className={s.statusForm} onClick={() => { activateEditMode() }}> {props.dataUser.status} </span>
+            <span className={s.statusForm} onClick={() => { activateEditMode() }}> {props.status} </span>
         </div> :
             <form>
                 <input type="text" autoFocus={true}
-                    onBlur={() => { closeEditMode(props.dataUser.status) }}
-                    value={props.dataUser.status} onChange={(e) => {
+                    onBlur={() => { closeEditMode(props.status) }}
+                    value={props.status} onChange={(e) => {
                         props.fieldProfile.changeStatusMessage(e.target.value)
                     }} />
             </form>

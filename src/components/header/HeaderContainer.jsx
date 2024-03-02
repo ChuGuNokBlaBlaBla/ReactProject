@@ -5,7 +5,8 @@ import { myLogin } from '../../redux/authReducer';
 
 const mapStateToProps = (state) => {
     return {
-        authMe: state.auth.authMe
+        authMe: state.auth.authMe,
+        userId: state.userId.userId
     }
 }
 const HeaderContainer = (props) => {

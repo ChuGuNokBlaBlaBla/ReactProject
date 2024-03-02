@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiUsers, profileApi } from "../api/userApi";
 
 const profileData = {
     myData: {
@@ -12,7 +11,6 @@ const profileData = {
         },
         statusProfile: 'Тут должен быть статус',
         statusMessage: 'Какой-то статус',
-        status: 'Это мой статус',
         editMode: false,
     },
     dataUserPage: [
@@ -93,23 +91,5 @@ const profileReducer = createSlice({
 })
 
 export const { newPost, changeStatus, setStatus, changeEditMode, changeStatusMessage } = profileReducer.actions;
-
-export const getStatus = (userId) => {
-    return (dispatch) => {
-        profileApi().getStatus(userId).then((list) => {
-            dispatch(setStatus(list.data))
-        })
-    }
-}
-
-export const statusUpdate = (status) => {
-    return (dispatch) => {
-        profileApi().statusUpdate(status).then((list) => {
-            if (list.data.resultCode === 0) {
-                dispatch(setStatus(status))
-            }
-        })
-    }
-}
 
 export default profileReducer.reducer

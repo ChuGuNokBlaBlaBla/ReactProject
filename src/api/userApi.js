@@ -39,14 +39,14 @@ export const apiUsers = () => {
 
 export const profileApi = () => {
     return {
-        renderProfileFriend(paramsId) {
+        getDataProfile(userId) {
             return (
-                instance.get(`/profile/${paramsId}`)
+                instance.get(`/profile/${userId}`)
             )
         },
-        getStatus() {
+        getStatus(userId) {
             return (
-                instance.get(`/profile/status/30033`)
+                instance.get(`/profile/status/${userId}`)
             )
         },
         statusUpdate(message) {
@@ -63,7 +63,7 @@ export const profileApi = () => {
             return (
                 instance.delete(`/auth/login`)
             ) 
-        }
+        },
         
     }
 }
