@@ -16,7 +16,7 @@ const MyDataProfile = (props) => {
                     </div>
                     <div className={s.profileInfo}>
                         <div><h2 className={s.profileInfoName}>{props.dataUser.fullName}</h2></div>
-                        <div><p>Дата рождения: 11.11.2012</p></div>
+                        <div><p>Дата рождения: 07.09.1999</p></div>
                         <div><p>{props.dataUser.aboutMe}</p></div>
                         <div>
                             <StatusProfile dataUser={props.dataUser} fieldProfile={props.fieldProfile} status={props.status} />
