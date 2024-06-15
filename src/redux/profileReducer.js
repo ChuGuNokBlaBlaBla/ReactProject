@@ -9,8 +9,7 @@ const profileData = {
             small: "https://social-network.samuraijs.com/activecontent/images/users/2/user-small.jpg?v=0",
             large: "https://naked-science.ru/wp-content/uploads/2016/04/article_supercoolpics_01_10072012124623.jpg"
         },
-        statusProfile: 'Тут должен быть статус',
-        statusMessage: 'Какой-то статус',
+        status: '',
         editMode: false,
     },
     dataUserPage: [
@@ -85,6 +84,7 @@ const profileReducer = createSlice({
             state.myData.editMode = action.payload
         },
         changeStatusMessage(state, action) {
+            console.log(action)
             state.myData.status = action.payload
         },
     }

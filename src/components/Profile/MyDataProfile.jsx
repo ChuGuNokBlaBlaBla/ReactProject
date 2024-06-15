@@ -19,7 +19,7 @@ const MyDataProfile = (props) => {
                         <div><p>Дата рождения: 07.09.1999</p></div>
                         <div><p>{props.dataUser.aboutMe}</p></div>
                         <div>
-                            <StatusProfile dataUser={props.dataUser} fieldProfile={props.fieldProfile} status={props.status} />
+                            <StatusProfile dataUser={props.dataUser} fieldProfile={props.fieldProfile} status={props.status} userId={props.userId}/>
                         </div>
                     </div>
                 </div>

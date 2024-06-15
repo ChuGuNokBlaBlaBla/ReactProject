@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import s from './ProfileBlock.module.css'
 
 const StatusProfile = (props) => {
-
-    useEffect(() => {
-        props.fieldProfile.getStatus(props.dataUser)
-    }, [])
+    
+    // useEffect(() => {
+    //     props.fieldProfile.getStatus(props.userId)
+    // }, [])
 
     const activateEditMode = () => {
         props.fieldProfile.changeEditMode(true)
@@ -24,6 +24,7 @@ const StatusProfile = (props) => {
                 <input type="text" autoFocus={true}
                     onBlur={() => { closeEditMode(props.status) }}
                     value={props.status} onChange={(e) => {
+                        console.log(e.target.value)
                         props.fieldProfile.changeStatusMessage(e.target.value)
                     }} />
             </form>

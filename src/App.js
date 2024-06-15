@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Messages from './components/Messages/Messages.jsx';
-import Sidebar from './components/Sidebar/Sidebar.jsx';
+import Sidebar from './components/sidebar/Sidebar.jsx';
 import ContainerConnectComponentProfile from './components/Profile/ContinerProfile/ContainerProfile';
 import ContainerProfileFriend from './components/Friends/RenderFriend/ContainerProfileFriend';
 import ConnectComponentListFriends from './components/Friends/ContainerFriendsRender';
-import HeaderContainer from './components/Header/HeaderContainer';
+import HeaderContainer from './components/header/HeaderContainer.jsx';
 import ContainerAuthMe from './components/Auth/AuthMe';
 
 function App() {

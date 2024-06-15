@@ -10,15 +10,17 @@ import s from '../../Profile/ProfileBlock.module.css'
 
 const mapStateToProps = (state)=> {
     return{
-        user: state.dataProfile.profilePage,
-        isAuth: state.auth.authMe,
-        status: state.dataProfile.status
+        user: state.dataProfile.myData,
+        status: state.status.status,
+        userId: state.userId.userId
     }
 }
 
 const ContainerProfile = (props)=> {
-
     const fieldProfile = {
+        user: props.user,
+        status: props.status,
+        userId: props.userId,
         getStatus: props.getStatus,
         statusUpdate: props.statusUpdate,
         changeStatus: props.changeStatus,
@@ -28,7 +30,7 @@ const ContainerProfile = (props)=> {
     
     return (
         <div className={s.wrapContent}>
-            <MyDataProfile fieldProfile={fieldProfile} dataUser={props.user} status={props.status} />
+            <MyDataProfile fieldProfile={fieldProfile} dataUser={props.user} status={props.status} userId={props.userId}/>
             <ContainerBlockPosts />
         </div>
     )

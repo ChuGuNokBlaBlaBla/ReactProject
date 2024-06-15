@@ -1,13 +1,13 @@
 import { applyMiddleware, configureStore } from "@reduxjs/toolkit";
-import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 import friendsReducer from "./friendsReducer";
 import authReducer from "./authReducer";
+import profileReducer from "./profileReducer";
 
 const store = configureStore({
     reducer: {
-        dataProfile: authReducer,
-        profilePage: profileReducer,
+        dataProfile: profileReducer,
+        profilePage: profileReducer ,
         dialogs: dialogsReducer,
         friends: friendsReducer,
         auth: authReducer,
