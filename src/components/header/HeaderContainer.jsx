@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     }
 }
 const HeaderContainer = (props) => {
-
+    
     useEffect(() => {
         props.myLogin()
     }, [])
@@ -18,4 +18,4 @@ const HeaderContainer = (props) => {
     return <Header authMe={props.authMe} />
 }
 
-export default connect(mapStateToProps, { myLogin })(HeaderContainer);
+export default connect(mapStateToProps, {myLogin} )(HeaderContainer);

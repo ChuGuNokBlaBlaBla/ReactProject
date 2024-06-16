@@ -5,8 +5,8 @@ import ContainerMyPosts from './SendPost/Container/ContainerSendPost.jsx';
 import { useSelector } from 'react-redux';
 
 const ContainerBlockPosts = () => {
-    const dataSentPost = useSelector(state => state.profilePage.dataPosts)
-    return (
+    const dataSentPost = useSelector(state => state.profilePage.gettingMyProfileData.dataPost)
+       return (
         <div className={s.wrapMyPost}>
             <ContainerMyPosts />
             <Posts dataSentPost={dataSentPost} />

@@ -1,4 +1,4 @@
-import dialogsReduser from "./dialogsReducer";
+import dialogsReduser from "../redux/dialogsReducer";
 import profileReducer from "./profileReducer";
 
 let dataObj = {

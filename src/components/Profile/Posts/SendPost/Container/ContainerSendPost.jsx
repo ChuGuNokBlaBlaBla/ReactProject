@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { newPost } from '../../../../../redux/profileReducer';
+import { newPost } from '../../../../../redux/authReducer';
 import SendPost from '../SendPost';
 
 const mapStateToProps = (state) => {

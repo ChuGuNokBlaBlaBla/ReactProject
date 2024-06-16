@@ -49,7 +49,7 @@ export const profileApi = () => {
                 instance.get(`/profile/status/${userId}`)
             )
         },
-        statusUpdate(message) {
+        statusUpdate(message='Статус скоро появится') {
             return (
                 instance.put(`/profile/status`, {status: message})
             )
