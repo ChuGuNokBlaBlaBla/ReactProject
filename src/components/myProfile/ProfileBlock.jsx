@@ -16,7 +16,7 @@ const BlockProfile = () => {
                         <h2 className={s.profileInfoName}>Иван Старов</h2>
                         <p>Дата рождения</p>
                         <p>Город</p>
-                        <p>Братья и сёстры</p>
+                        <p>Братья и сёстры: У меня есть братья и сёстры!</p>
                     </div>
                 </div>
                 <div className={s.wrapMyPost}>Мой пост</div>
