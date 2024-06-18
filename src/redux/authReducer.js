@@ -7,6 +7,7 @@ const initialStateAuth = {
     status: null,
     profilePage: {},
     userId: null,
+    resultCode:'',
 }
 
 const authReducer = createSlice({
@@ -37,9 +38,7 @@ export const { setDataAuth, authSucces, setDataProfile, setStatus, setUserId } =
 export const myLogin = () => {
     return (dispatch) => {
         apiUsers().myLogin().then((response) => {
-            console.log(response);
             dispatch(setDataAuth(response.data))
-            // dispatch(setStatus(response.data))
             dispatch(setUserId(response.data.data.id))
         })
     }
@@ -56,6 +55,7 @@ export const getDataProfile = (userId) => {
 export const logIn = (email, password, rememberMe) => {
     return (dispatch) => {
         profileApi().logIn(email, password, rememberMe).then((response) => {
+            console.log(response);
             dispatch(myLogin(response.data.data.userId))
         })
     }
@@ -84,6 +84,13 @@ export const statusUpdate = (status) => {
                 dispatch(setStatus(status))
             }
         })
+    }
+}
+
+// провекра пароля и логина на ошбки
+export const getError = () => {
+    return (dispatch) => {
+
     }
 }
 
