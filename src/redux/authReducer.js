@@ -37,8 +37,9 @@ export const { setDataAuth, authSucces, setDataProfile, setStatus, setUserId } =
 export const myLogin = () => {
     return (dispatch) => {
         apiUsers().myLogin().then((response) => {
+            console.log(response);
             dispatch(setDataAuth(response.data))
-            dispatch(getStatus(response.data.data.id))
+            // dispatch(setStatus(response.data))
             dispatch(setUserId(response.data.data.id))
         })
     }
@@ -55,9 +56,7 @@ export const getDataProfile = (userId) => {
 export const logIn = (email, password, rememberMe) => {
     return (dispatch) => {
         profileApi().logIn(email, password, rememberMe).then((response) => {
-            dispatch(getDataProfile(response.data.data.userId))
             dispatch(myLogin(response.data.data.userId))
-            
         })
     }
 }
