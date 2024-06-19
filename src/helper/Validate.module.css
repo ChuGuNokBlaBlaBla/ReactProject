@@ -1,0 +1,8 @@
+.errosActive {
+    display: block;
+    padding: 5px 10px;
+    border: 2px solid red;
+}
+.errorsNone {
+    display: none;
+}

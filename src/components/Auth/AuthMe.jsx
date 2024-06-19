@@ -5,13 +5,14 @@ import { exitProfile, logIn } from "../../redux/authReducer";
 
 const mapStateToProps = (state) => {
     return {
-        authMe: state.auth.authMe
+        authMe: state.auth.authMe,
+        errorMessages: state.auth.errorMessages
     }
 }
 
 const LoginNetwork = (props) => {
     return (!props.authMe ? <div>
-        <AuthWebsite logIn={props.logIn} />
+        <AuthWebsite logIn={props.logIn} errorMessages={props.errorMessages} />
     </div> : <div>
         <ExitProfile exitProfile={props.exitProfile} />
     </div>)

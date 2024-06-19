@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { redirect } from 'react-router-dom'
+import styleValidate from './Validate.module.css'
 
 export const AuthWebsite = (props) => {
 
@@ -11,12 +11,12 @@ export const AuthWebsite = (props) => {
     const onSubmit = (formData) => {
         props.logIn( formData.email, formData.password, formData.rememberMe)
     }
-    
+
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <input {...register('email', { required: 'Поле email обязательно к заполнению' })} type='text' placeholder='email' name='email'></input>
-                {errors?.login && <p>{errors.login.message}</p>}
+                {errors?.email && <p>{errors.email.message}</p>}
             </div>
             <div>
                 <input {...register('password', { required: 'Поле password обязательно к заполнению' })} type='text' placeholder='password' name='password'></input>
@@ -25,6 +25,7 @@ export const AuthWebsite = (props) => {
             <div>
                 <input {...register('rememberMe')} type='checkbox' placeholder='checkbox' name='rememberMe'></input>Remember me
             </div>
+            <div className={props.errorMessages ? styleValidate.errosActive: styleValidate.errorsNone}>{props.errorMessages}</div>
             <button>Log in</button>
         </form>
     )

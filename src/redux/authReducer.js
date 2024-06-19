@@ -7,7 +7,7 @@ const initialStateAuth = {
     status: null,
     profilePage: {},
     userId: null,
-    resultCode:'',
+    errorMessages: ''
 }
 
 const authReducer = createSlice({
@@ -29,11 +29,17 @@ const authReducer = createSlice({
         },
         setUserId(state, action) {
             state.userId = action.payload
+        },
+        setErrorAuth(state, action) {
+            console.log(action.payload.messages);
+            console.log(action.payload.resultCode);
+            state.resultCode = action.payload.resultCode
+            state.errorMessages = action.payload.messages
         }
     }
 })
 
-export const { setDataAuth, authSucces, setDataProfile, setStatus, setUserId } = authReducer.actions
+export const { setDataAuth, authSucces, setDataProfile, setStatus, setUserId, setErrorAuth } = authReducer.actions
 
 export const myLogin = () => {
     return (dispatch) => {
@@ -55,8 +61,8 @@ export const getDataProfile = (userId) => {
 export const logIn = (email, password, rememberMe) => {
     return (dispatch) => {
         profileApi().logIn(email, password, rememberMe).then((response) => {
-            console.log(response);
             dispatch(myLogin(response.data.data.userId))
+            dispatch(setErrorAuth(response.data))
         })
     }
 }
