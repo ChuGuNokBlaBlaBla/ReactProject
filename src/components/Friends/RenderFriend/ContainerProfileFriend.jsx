@@ -5,10 +5,11 @@ import { useParams } from 'react-router-dom';
 import s from '../Friends.module.css'
 import Preloader from '../../Common/Preloader/Preloader';
 import icon from '../../../assets/icon.png'
+import { getActiveUser } from '../../../Selectors/selectorFriends';
 
 const mapStateToProps = (state) => {
     return {
-        activeUser: state.friends.activeUser
+        activeUser: getActiveUser(state)
     }
 }
 

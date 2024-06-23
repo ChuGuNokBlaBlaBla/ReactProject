@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.authMe
+        isAuth: state.authReducer.authMe
     }
 }
 

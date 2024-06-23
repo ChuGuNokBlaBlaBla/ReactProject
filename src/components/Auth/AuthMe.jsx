@@ -5,8 +5,8 @@ import { exitProfile, logIn } from "../../redux/authReducer";
 
 const mapStateToProps = (state) => {
     return {
-        authMe: state.auth.authMe,
-        errorMessages: state.auth.errorMessages
+        authMe: state.authReducer.authMe,
+        errorMessages: state.authReducer.errorMessages
     }
 }
 

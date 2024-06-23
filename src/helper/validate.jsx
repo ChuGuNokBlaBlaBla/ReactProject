@@ -25,7 +25,7 @@ export const AuthWebsite = (props) => {
             <div>
                 <input {...register('rememberMe')} type='checkbox' placeholder='checkbox' name='rememberMe'></input>Remember me
             </div>
-            <div className={props.errorMessages ? styleValidate.errosActive: styleValidate.errorsNone}>{props.errorMessages}</div>
+            <div className={props.errorMessages.length ? styleValidate.errosActive: styleValidate.errorsNone}>{props.errorMessages}</div>
             <button>Log in</button>
         </form>
     )

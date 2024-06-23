@@ -6,13 +6,10 @@ import profileReducer from "./profileReducer";
 
 const store = configureStore({
     reducer: {
-        dataProfile: profileReducer,
-        profilePage: profileReducer ,
-        dialogs: dialogsReducer,
-        friends: friendsReducer,
-        auth: authReducer,
-        userId: authReducer,
-        status: authReducer,
+        profileReducer: profileReducer,
+        dialogsReducer: dialogsReducer,
+        friendsReducer: friendsReducer,
+        authReducer: authReducer,
     }
 })
 

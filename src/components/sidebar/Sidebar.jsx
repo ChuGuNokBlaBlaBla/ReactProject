@@ -9,7 +9,6 @@ const Sidebar = () => {
                 <NavLink to="/profile" className={({ isActive }) => isActive ? s.active : ""}>Мой профиль</NavLink>
                 <NavLink to="/messages" className={({ isActive }) => isActive ? s.active : ""}>Мои сообщения</NavLink>
                 <NavLink to="/my_friends" className={({ isActive }) => isActive ? s.active : ""}>Мои друзья</NavLink>
-                <NavLink to="/settings" className={({ isActive }) => isActive ? s.active : ""}>Фоторафии</NavLink>
                 <NavLink to="/login" className={({ isActive }) => isActive ? s.active : ""}>Настройки</NavLink>
             </div>
         </div>

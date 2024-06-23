@@ -1,10 +1,11 @@
 import { connect } from "react-redux"
 import { newMessage } from "../../../../../redux/dialogsReducer"
 import ChatImput from "../ChatImput"
+import { getValueMessage } from "../../../../../Selectors/selectorDialogs"
 
 const mapStateToProps = (state) => {
     return {
-        valueMessage: state.dialogs.valueMessage
+        valueMessage: getValueMessage(state)
     }
 }
 

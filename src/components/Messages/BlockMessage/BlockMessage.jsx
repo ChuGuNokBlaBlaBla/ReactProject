@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ContainerMyMessage from './MyMessage/Container/ContainerCompMessage';
 
 const ContListMessage = () => {
-    const dataSentMessage = useSelector(state => state.dialogs.sentMessage)
+    const dataSentMessage = useSelector(state => state.dialogsReducer.sentMessage)
     return (
         <div>
             <RenderMessage dataSentMessage={dataSentMessage} />

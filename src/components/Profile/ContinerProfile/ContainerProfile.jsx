@@ -7,12 +7,13 @@ import { getStatus, statusUpdate } from '../../../redux/authReducer';
 import MyDataProfile from '../MyDataProfile';
 import ContainerBlockPosts from '../Posts/ContainerBlockPost';
 import s from '../../Profile/ProfileBlock.module.css'
+import { getUser, getUserId, getStatusProfile } from '../../../Selectors/selectorProfile';
 
 const mapStateToProps = (state)=> {
     return{
-        user: state.dataProfile.myData,
-        status: state.status.status,
-        userId: state.userId.userId
+        user: getUser(state),
+        status: getStatusProfile(state),
+        userId: getUserId(state)
     }
 }
 

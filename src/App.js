@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Messages from './components/Messages/Messages.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
@@ -7,8 +7,24 @@ import ContainerProfileFriend from './components/Friends/RenderFriend/ContainerP
 import ConnectComponentListFriends from './components/Friends/ContainerFriendsRender';
 import HeaderContainer from './components/header/HeaderContainer.jsx';
 import ContainerAuthMe from './components/Auth/AuthMe';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { myLogin } from './redux/authReducer.js';
+import { withAuthRedirect } from './hoc/withAuthReducer.js';
+import { compose } from 'redux';
 
-function App() {
+const mapStateToProps = (state) => {
+  return {
+    authMe: state.authReducer.authMe,
+  }
+}
+
+const App = (props) => {
+
+  useEffect(() => {
+    props.myLogin()
+  }, [props.authMe])
+
   return (
     <div className="wrap-app">
       <HeaderContainer />
@@ -27,4 +43,10 @@ function App() {
     </div>
   );
 }
-export default App;
+
+export default compose(
+  // withAuthRedirect,
+  connect(mapStateToProps, { myLogin }),
+)
+  (App)
+

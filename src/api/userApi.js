@@ -30,8 +30,7 @@ export const apiUsers = () => {
         },
         renderProfileFriend(paramsId) {
             return (
-                profileApi().renderProfileFriend(paramsId)
-                // instance.get(`profile/${paramsId}`)
+                instance.get(`profile/${paramsId}`)
             )
         }
     }

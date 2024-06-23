@@ -3,15 +3,16 @@ import { getListUsers, unfollow, follow } from '../../redux/friendsReducer';
 import FriendsRender from './FriendUser/FriendsRender';
 import { withAuthRedirect } from '../../hoc/withAuthReducer';
 import { compose } from 'redux';
+import { getUsers, getTotalCount, getPage, getCount, getRequsetStatus, getFollowedProgress } from '../../Selectors/selectorFriends';
 
 const mapStateToProps = (state) => {
     return {
-        users: state.friends.items,
-        totalCount: state.friends.totalCount,
-        page: state.friends.page,
-        count: state.friends.count,
-        requsetStatus: state.friends.isRequest,
-        followedProgress: state.friends.followedProgress
+        users: getUsers(state),
+        totalCount: getTotalCount(state),
+        page: getPage(state),
+        count: getCount(state),
+        requsetStatus: getRequsetStatus(state),
+        followedProgress: getFollowedProgress(state)
     }
 }
 export default compose(

@@ -31,8 +31,6 @@ const authReducer = createSlice({
             state.userId = action.payload
         },
         setErrorAuth(state, action) {
-            console.log(action.payload.messages);
-            console.log(action.payload.resultCode);
             state.resultCode = action.payload.resultCode
             state.errorMessages = action.payload.messages
         }
