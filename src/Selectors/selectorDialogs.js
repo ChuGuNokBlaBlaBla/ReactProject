@@ -5,3 +5,7 @@ export const getValueMessage = (state) => {
 export const getSentMessage = (state) => {
     return state.dialogsReducer.sentMessage
 }
+
+export const getFildName = (state) => {
+    return state.dialogsReducer.fildName
+}

@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialStateDialogs = {
+    fildName: 'message',
     sentMessage: [],
     valueMessage: ''
+
 }
 
 const dialogsReducer = createSlice({
