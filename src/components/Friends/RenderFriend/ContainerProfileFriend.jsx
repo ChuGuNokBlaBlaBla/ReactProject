@@ -9,12 +9,11 @@ import { getActiveUser } from '../../../Selectors/selectorFriends';
 
 const mapStateToProps = (state) => {
     return {
-        activeUser: getActiveUser(state)
+        activeUser: getActiveUser(state),
     }
 }
 
 const ContainerProfileFriend = (props) => {
-
     let paramsId = useParams()
     useEffect(() => {
         props.createProfileFrined(paramsId.id)

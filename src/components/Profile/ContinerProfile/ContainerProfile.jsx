@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../../../hoc/withAuthReducer';
 import { compose } from 'redux';
@@ -18,6 +18,11 @@ const mapStateToProps = (state)=> {
 }
 
 const ContainerProfile = (props)=> {
+
+    useEffect(() => {
+        fieldProfile.getStatus(props.userId)
+    }, [])
+
     const fieldProfile = {
         user: props.user,
         status: props.status,

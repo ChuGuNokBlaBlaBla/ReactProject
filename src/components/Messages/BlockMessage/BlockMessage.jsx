@@ -1,16 +1,22 @@
 import React from 'react';
 import RenderMessage from './MyMessage/RenderMessage'
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import ContainerMyMessage from './MyMessage/Container/ContainerCompMessage';
+import { getSentMessage } from '../../../Selectors/selectorDialogs';
 
-const ContListMessage = () => {
-    const dataSentMessage = useSelector(state => state.dialogsReducer.sentMessage)
+const mapStateToProps = (state) => {
+    return {
+        sentMessage: getSentMessage(state)
+    }
+}
+
+const ContListMessage = (props) => {
     return (
         <div>
-            <RenderMessage dataSentMessage={dataSentMessage} />
+            <RenderMessage dataSentMessage={props.sentMessage} />
             <ContainerMyMessage />
         </div>
     )
 }
 
-export default ContListMessage;
+export default connect(mapStateToProps, {})(ContListMessage);

@@ -7,7 +7,7 @@ export const getUserId = (state) => {
 }
 
 export const getStatusProfile = (state) => {
-    return state.profileReducer.status;
+    return state.authReducer.status;
 }
 
 export const getValuePost = (state) => {
